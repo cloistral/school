@@ -79,6 +79,19 @@ const tuijianKclist = function (param) {
 }
 
 
+const getWatchRecord = function (param) {
+    request({
+        url: "/api/ab/jianzhenglist",
+        data: param.data,
+        method: 'post',
+        success(res) {
+            if (param.success) {
+                param.success(res)
+            }
+        }
+    })
+}
+
 module.exports = {
     getHomeInfo,
     getRecommendClassList, //获取首页推荐视频
@@ -86,4 +99,5 @@ module.exports = {
     listenDetail, //
     listenDetailVideoById ,
     tuijianKclist , //首页推荐的视频
+    getWatchRecord,
 }

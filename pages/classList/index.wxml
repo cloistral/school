@@ -17,7 +17,7 @@
                 <text class="free">线上体验课</text>
             </view> -->
             <view class="common">
-                <text></text>
+                <text>类别:{{item.kcTypeName}}</text>
                 <view class="listen"  >
                       立即查看
                 </view>

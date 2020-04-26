@@ -1,6 +1,6 @@
 // pages/listening/index.js
 
-const { listenDetail, listenDetailVideoById } = require('../../utils/server/home.js')
+const { listenDetail, listenDetailVideoById, getWatchRecord } = require('../../utils/server/home.js')
 const app = getApp()
 
 Page({
@@ -12,15 +12,26 @@ Page({
         kcShiluId : '' ,
         classTypeList : [],
         videoList : [],
-        selectClassTypeId : 0,
+        selectClassTypeId : 1,
         videoUrl : '',
+        typeList : [
+            { id : 1 , text : '视频' },
+            { id: 2, text: '图片' },
+        ],
+        mediaObject : {
+            imageList : [],
+            videoList : []
+        }
     },
     selectClassType (e) {
+
         let id = e.currentTarget.dataset.data.id
         if (id == this.data.selectClassTypeId) return;
         this.setData({
             selectClassTypeId : id
         })
+
+        return;
         listenDetailVideoById({
             data: { shiluTypeId : id},
             success : (res) => {
@@ -30,7 +41,7 @@ Page({
             }
         }) 
     },
-    downloadVideo () {
+    saveVideo () {
         const downloadTask = wx.downloadFile({
             url: data.videoUrl,
             success: (res) => {
@@ -46,9 +57,9 @@ Page({
         })
     },
     playVideo (e) {
-        let videoUrl = e.currentTarget.dataset.data.videoUrl
+        let videoUrl = e.currentTarget.dataset.data.url
         this.setData({
-            videoUrl: app.globalData.baseUrl + videoUrl
+            videoUrl: videoUrl
         }) 
     },
 
@@ -62,6 +73,37 @@ Page({
         this.__initData()
     },
     __initData () {
+        //获取视频
+        getWatchRecord({
+            data: { shiluTypeId: 1},
+            success : (res) => {
+                let list = res.data.jianzhenglist || []
+                list && list.forEach( item => {
+                    item.url = app.globalData.baseUrl + item.videoUrl
+                })
+                this.setData({
+                    'videoUrl' : list[0].url,
+                    ['mediaObject.videoList']: res.data.jianzhenglist
+                })
+            }
+        })
+        //获取图片
+        getWatchRecord({
+            data: { shiluTypeId: 2 },
+            success: (res) => {
+                let list = res.data.jianzhenglist || []
+                list.forEach(item => {
+                    item.url = app.globalData.baseUrl + item.imgUrl
+                })
+                this.setData({
+                    ['mediaObject.imageList']: list
+                })
+                console.log(this.data.mediaObject)
+                
+            }
+        })
+
+        return
         listenDetail({
             data: { kcShiluId: this.data.kcShiluId },
             success : (res) => {
@@ -71,51 +113,71 @@ Page({
                     videoUrl: app.globalData.baseUrl + res.data.videolist[0].videoUrl
                 })
             }
+        })  
+    },
+
+    saveVideo(e) {
+        let videoUrl = e.currentTarget.dataset.data.url
+        wx.showLoading({
+            title: '下载中...',
         })
-        
-    },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
+        const downloadTask = wx.downloadFile({
+            url: videoUrl,
+            success: (res) => {
+                wx.saveVideoToPhotosAlbum({
+                    filePath: res.tempFilePath,
+                    success: () => {
+                        wx.showToast({
+                            title: '保存成功',
+                        })
+                    },
+                    fail: () => {
+                        wx.showToast({
+                            title: '保存失败',
+                            icon: 'none'
+                        })
+                    },
+                    complete: () => {
+                        wx.hideLoading()
+                    }
+                })
+            }
+        })
+        downloadTask.onProgressUpdate((res) => {
+            console.log('下载进度', res.progress)
+            console.log('已经下载的数据长度', res.totalBytesWritten)
+            console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
+        })
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
+    saveImage (e) {
+        let url = e.currentTarget.dataset.data.url
+        wx.showLoading({
+            title: '加载中...',
+        })
+        wx.downloadFile({
+            url : url,
+            success : (res) => {
+                wx.saveImageToPhotosAlbum({
+                    filePath: res.tempFilePath,
+                    success : () => {
+                        wx.showToast({
+                            title: '保存成功',
+                        })
+                    },
+                    fail : () => {
+                        wx.showToast({
+                            title: '保存失败',
+                            icon : 'none'
+                        })
+                    },
+                    complete : () => {
+                        wx.hideLoading()
+                    }
+                })
+            }
+        })
     },
-
     /**
      * 用户点击右上角分享
      */
