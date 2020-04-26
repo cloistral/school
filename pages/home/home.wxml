@@ -17,7 +17,7 @@
   </view>
 
   <view class="menu-section">
-    <view class="title">课程</view>
+    <!-- <view class="title">课程</view> -->
     <view class="class-menu-container">
       <view class="menu-item" 
             wx:for="{{menuList}}"

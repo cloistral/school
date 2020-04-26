@@ -25,14 +25,25 @@ Page({
             videoList : []
         }
     },
+    onReady: function (res) {
+        this.videoContext = wx.createVideoContext('myVideo')
+    },
     selectClassType (e) {
 
         let id = e.currentTarget.dataset.data.id
         if (id == this.data.selectClassTypeId) return;
         this.setData({
-            selectClassTypeId : id
+            selectClassTypeId: id
         })
 
+        if(id == 1) {
+            this.videoContext.play()
+        }else {
+            this.videoContext.pause()
+        }
+
+       
+        
         return;
         listenDetailVideoById({
             data: { shiluTypeId : id},

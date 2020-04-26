@@ -1,8 +1,11 @@
 /* pages/order/order.wxss */
 .service {
     width: 90vw;
-    margin: 0 auto 20rpx;
-    border-bottom: 1px solid #f5f5f5;
+    margin: 15rpx auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 5vw;
+    box-shadow:  0 0 10px rgba(0, 0, 0, .16);
 }
 
 .service .service-item {
@@ -17,4 +20,8 @@
 
 .service .service-item .content {
     color: #8a8a8a;
+}
+
+.service-item .content.bold {
+    font-weight: bold;
 }

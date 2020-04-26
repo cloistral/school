@@ -1,6 +1,4 @@
-<view class="video-container">
-    <video id="myVideo" src="{{videoUrl}}" autoplay="{{true}}"></video>
-</view>
+
 
 <view class="class-menu">
     <!-- <view class="class-menu-title">选择课程</view> -->
@@ -24,10 +22,13 @@
     </scroll-view>
 </view>
 
+<view class="video-container" hidden="{{selectClassTypeId == 2}}">
+    <video id="myVideo" src="{{videoUrl}}" autoplay="{{true}}"></video>
+</view>
 
 <view class="unit-container">
     <!-- <view class="unit-title">单元</view> -->
-    <scroll-view scroll-y>
+    <scroll-view scroll-y class="{{selectClassTypeId == 2 ? 'image-scroll' :'video-scroll'}}">
         <block  wx:if="{{selectClassTypeId == 1}}">
              <view class="unit-item" 
                     wx:for="{{mediaObject.videoList}}"
@@ -35,7 +36,7 @@
                     data-data="{{item}}"
                     bindtap="playVideo">
             <!-- <text class="unit">{{item.danyuan}}</text> -->
-            <text class="content">{{item.kcTitle}} {{videoUrl == item.url}} </text>
+            <text class="content">{{item.kcTitle}}</text>
             <image class="down" 
                    
                    data-data="{{item}}"
@@ -55,7 +56,7 @@
                     wx:for="{{mediaObject.imageList}}"
                     wx:key="index"
                     data-data="{{item}}">
-                    <text class="content">{{item.kcTitle}}</text>
+                    <!-- <text class="content">{{item.kcTitle}}</text> -->
                     <image  mode="widthFix"
                             data-data="{{item}}"
                             bindlongtap="saveImage"

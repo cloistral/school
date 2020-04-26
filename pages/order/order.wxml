@@ -2,7 +2,7 @@
   <view class="service" wx:for="{{serviceList}}">
       <view class="service-item">
             <text class="title">课程名称:　</text>
-            <text class="content">{{item.kcname}}</text>
+            <text class="content bold">{{item.kcname}}</text>
       </view>
        <view class="service-item">
             <text class="title">课包名称:　</text>

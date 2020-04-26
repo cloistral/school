@@ -42,7 +42,7 @@ Page({
             'swiperInfo.width': windowWidth * .95 + 'px',
             'swiperInfo.height': windowWidth * .95 / pi + 'px'
         })
-        console.log(this.data.swiperInfo)
+        console.log(this.data.swiperInfo, e.detail)
     },
 
     goToPage (e) {

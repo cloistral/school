@@ -51,8 +51,15 @@
 
 .unit-container scroll-view {
     width: 100%;
-    height: calc(100vh - 400rpx - 100rpx);
     box-sizing: border-box;
+}
+
+.video-scroll {
+    height: calc(100vh - 400rpx - 100rpx);
+}
+
+.image-scroll {
+   height: calc(100vh - 100rpx); 
 }
 
 .unit-title {
