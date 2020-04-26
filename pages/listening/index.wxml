@@ -1,0 +1,33 @@
+<view class="video-container">
+    <video id="myVideo" src="{{videoUrl}}" autoplay="{{true}}"></video>
+</view>
+
+<view class="class-menu">
+    <view class="class-menu-title">选择课程</view>
+    <scroll-view class="scroll_h" scroll-x="true">
+        <view class="scroll_h_item " 
+              data-data="{{item}}"
+              bindtap="selectClassType"
+              wx:for="{{classTypeList}}">
+              <view class="class-type {{selectClassTypeId == item.id ? 'active' : ''}}">
+                    {{item.kcShiluType}}
+              </view>
+        </view>
+    </scroll-view>
+</view>
+
+
+<view class="unit-container">
+    <view class="unit-title">单元</view>
+    <scroll-view scroll-y>
+        <view class="unit-item" 
+              wx:for="{{videoList}}"
+              wx:key="index"
+              data-data="{{item}}"
+              bindtap="playVideo">
+            <text class="unit">{{item.danyuan}}</text>
+            <text class="content">{{kcTitle}}</text>
+            <image src="/images/play.png"></image>
+        </view>
+    </scroll-view>
+</view>

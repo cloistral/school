@@ -1,0 +1,37 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/classDetail/index",
+        "pages/classDetailEdit/index",
+        "pages/edit/edit",
+        "pages/pay/pay",
+        "pages/mine/mine",
+        "pages/about/about",
+        "pages/order/order",
+        "pages/listening/index",
+        "pages/classList/index"
+    ],
+    "tabBar": {
+        "color": "#8a8a8a",
+        "selectedColor": "#FD7321",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "/images/tab/home.png",
+                "selectedIconPath": "/images/tab/home_s.png"
+            },
+            {
+                "pagePath": "pages/mine/mine",
+                "iconPath": "/images/tab/mine.png",
+                "selectedIconPath": "/images/tab/mine_s.png"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "天童云课堂",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
+}

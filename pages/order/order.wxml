@@ -1,0 +1,24 @@
+<view>
+  <view class="service" wx:for="{{serviceList}}">
+      <view class="service-item">
+            <text class="title">课程名称:　</text>
+            <text class="content">{{item.kcname}}</text>
+      </view>
+       <view class="service-item">
+            <text class="title">课包名称:　</text>
+            <text class="content">{{item.kcBaoNames}}</text>
+      </view>
+      <view class="service-item">
+            <text class="title">地区　　:　</text>
+            <text class="content">{{item.diquName}}</text>
+      </view>
+      <view class="service-item">
+            <text class="title">分校　　:　</text>
+            <text class="content">{{item.agencyName}}</text>
+      </view>
+      <view class="service-item">
+            <text class="title">创建时间:　</text>
+            <text class="content">{{item.createDate}}</text>
+      </view>
+  </view>
+</view>

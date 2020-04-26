@@ -1,0 +1,85 @@
+<view>
+  <view class="ad-swiper-container">
+    <swiper interval="2000"
+            indicator-dots="{{true}}"
+            style="height:{{swiperInfo.height}}"
+            indicator-active-color="#fff"
+            autoplay="{{true}}">
+        <block wx:for="{{adSwiperList}}" wx:key="index">
+          <swiper-item>
+            <image class="product_top" 
+                   mode="widthFix"
+                   bindload="imageLoad"
+                   src="{{item.imgPath}}"></image>
+          </swiper-item>
+        </block>
+    </swiper>
+  </view>
+
+  <view class="menu-section">
+    <view class="title">课程</view>
+    <view class="class-menu-container">
+      <view class="menu-item" 
+            wx:for="{{menuList}}"
+            data-param="{{item}}"
+            bindtap="goToPage"
+            wx:key="index">
+         <image src="{{item.imagePath}}"></image>
+         <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="class-container">
+      <view class="class-section">
+        <text class="title">课程推荐</text>
+        <!-- <text class="question">如何在天童云课堂上课 ></text> -->
+      </view>
+
+      <view class="class-item" 
+            wx:for="{{recommendClassList}}"
+            wx:key="index"
+            data-data="{{item}}"
+            bindtap="goToClassDetail">
+        <view class="image">
+           <image style="width:100%" 
+                  mode="widthFix"  
+                  src="{{item.topImg}}"></image>
+        </view>
+        <view class="class-info" >
+            <view class="common class-title">{{item.kcName}}</view>
+            <!-- <view class="common">
+                <text class="free">线上体验课</text>
+            </view> -->
+            <view class="common">
+                <text></text>
+                <view class="listen" 
+                      data-data="{{item}}">
+                      立即查看
+                </view>
+            </view>
+        </view>
+      </view>
+
+  </view>
+
+</view>
+
+<!-- {{isSaleShow?'active':''}} -->
+
+<view class="mask-container " 
+      wx:if="{{isSaleShow}}"
+      bindtap="closeSaleMask"
+      catchtouchmove="true">
+     <view class="sale" catchtap="true">
+         <image class="sale-image" 
+                src="/images/sale.png"  
+                mode="widthFix"></image>
+     </view>
+     <image src="/images/close_sale.png" 
+            catchtap="true"
+            bindtap="closeSale"
+            class="close"
+            mode="widthFix">
+     </image>
+</view>

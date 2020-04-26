@@ -1,0 +1,87 @@
+<view class="page">
+    <view class="input_container">
+        <text>手机账号</text>
+        <input  bindinput="bindPhoneInput"
+                value="{{param.mobile}}"
+                placeholder-style="color:#DBDCDD"></input>
+    </view>
+
+    <!-- <view class="input_container">
+        <text>密码　　</text>
+        <input  type="password"
+                placeholder="请输入用户密码"
+                value="{{param.password}}"
+                placeholder-style="color:#DBDCDD"></input>
+    </view> -->
+  
+    <!-- <view class="input_container">
+        <text>宝贝姓名</text>
+        <input  value="{{param.nickname}}"
+                bindinput="bindNicknameInput"
+                placeholder-style="color:#DBDCDD" 
+                placeholder="请输入宝贝昵称"></input>
+    </view> -->
+   
+    <!-- <view class="input_container">
+        <text>所在学校</text>
+        <picker mode="selector" 
+                range="{{schoolList}}"
+                range-key="name"
+                value="{{param.diquId}}"    
+                bindchange="bindSchoolChange">
+              <input  disabled
+                      value="{{param.school}}"
+                      placeholder-style="color:#DBDCDD"  
+                      placeholder="请选择学校"></input>
+        </picker>
+    </view> -->
+    <view class="input_container">
+        <text>宝贝昵称</text>
+        <input  value="{{param.hzname}}"
+                bindinput="bindNicknameInput"
+                placeholder-style="color:#DBDCDD" 
+                placeholder="请输入宝贝昵称"></input>
+    </view>
+    <view class="input_container">
+        <text>宝贝生日</text>
+        <picker mode="date" value="{{param.birthday}}"    
+                            bindchange="bindDateChange">
+              <input disabled
+                      value="{{param.birthday}}"
+                      placeholder-style="color:#DBDCDD"  
+                      placeholder="请选择宝贝生日"></input>
+        </picker>
+    </view>
+  <view class="sex_container">
+      <view class="common-container" 
+            bindtap="sexBtnclick" data-sex="0">
+          <image class="boy" 
+                 wx:if="{{param.sex == 0}}" 
+                 src="/images/edit/boy_select.png"></image>
+          <image class="boy" wx:else src="/images/edit/boy.png"></image>
+          <text>男孩</text>
+      </view>
+       <view class="common-container" 
+             bindtap="sexBtnclick"  data-sex="1">
+          <image class="girl" 
+                 wx:if="{{param.sex == 1}}" 
+                 src="/images/edit/girl_select.png">
+          </image>
+          <image class="girl"  wx:else src="/images/edit/girl.png"></image>
+          <text>女孩</text>
+      </view>
+       
+    </view>
+   <!-- <view class="input_container">
+            <text>邀请码　</text>
+            <input  type="text"
+                    bindinput="bindCodeInput"
+                    placeholder="请输入邀请码"
+                    value="{{param.yqcode}}"
+                    placeholder-style="color:#DBDCDD"></input>
+        </view> -->
+  <view class="success-btn">
+      <button bindtap="submit">完成</button>
+  </view>
+
+</view>

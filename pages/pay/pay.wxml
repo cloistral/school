@@ -1,0 +1,18 @@
+<view>
+    <view class="pay-info-container">
+        <image src="/images/pay/pay_success.png"></image>
+        <text class="pay-info">课程预约成功</text>
+        <!-- <text class="money">¥{{param.price}}</text> -->
+         <!-- <view class="pay-way">
+            <text style="color:#888">支付方式</text>
+            <text>微信支付</text>
+        </view> -->
+        <view class="ad-tip">
+            <text>请联系运营人员</text>
+            <text style="color:#888">{{param.name}} </text>
+            <text>电话:</text>
+            <text style="color:#888">{{param.phone}}</text>
+        </view>
+    </view>
+   
+</view>

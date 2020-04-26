@@ -1,0 +1,28 @@
+
+ <view class="class-container">
+      
+      <view class="class-item" 
+            wx:for="{{classList}}"
+            wx:key="index"
+            data-data="{{item}}"
+            bindtap="handleToClassDetail">
+        <view class="image">
+           <image style="width:100%" 
+                  mode="widthFix"  
+                  src="{{item.topImg}}"></image>
+        </view>
+        <view class="class-info" >
+            <view class="common class-title">{{item.kcName}}</view>
+            <!-- <view class="common">
+                <text class="free">线上体验课</text>
+            </view> -->
+            <view class="common">
+                <text></text>
+                <view class="listen"  >
+                      立即查看
+                </view>
+            </view>
+        </view>
+      </view>
+
+  </view>

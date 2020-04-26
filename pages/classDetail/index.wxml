@@ -1,0 +1,154 @@
+<view>
+    <view class="product-section-top">
+       <swiper indicator-dots="{{false}}"
+               style="width:100vw;height:calc(100vw - 8px)"
+               interval="2000"
+               autoplay="{{true}}">
+        <block wx:for="{{baseInfo.swiperList}}" wx:key="index">
+          <swiper-item >
+            <image class="product_top" 
+                   mode="widthFix" 
+                   src="{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- <view class="on-sale-container" style="color:#D5252A">
+         <view class="on-sale">
+          <text style="font-size:32rpx">拼团价</text>
+          <text style="font-size:40rpx;font-weight:bold;">
+            ¥
+          </text>
+          <text style="font-size:80rpx;font-weight:bold;">
+              {{baseInfo.kcMailPrice}} 
+          </text>
+          <text style="font-size:32rpx;">单买价</text>
+          <text style="font-size:32rpx;font-weight:bold;margin-left:5px">¥</text> 
+          <text style="font-size:32rpx;">
+              {{baseInfo.kcYuanPrice}}
+          </text>
+         </view>
+         <view class="on-sale-tip">
+            <view>拼团立省</view>
+            <view>¥{{baseInfo.kcYuanPrice - baseInfo.kcMailPrice}}</view>
+         </view>
+      </view> -->
+    </view>
+    <view class="section-group">
+        <text class="section-group-title">2人正在拼团,可直接拼团</text>
+        <view class="section-group-cell" 
+              wx:for="{{groupList}}"
+              wx:key="index"
+              >
+            <image class="group_head_image"
+                   mode="aspectFit"  
+                   
+                   src="{{item.img}}"></image>
+            <text class="group_username" style="margin-left:5px">{{item.nickname}}</text>
+            <view class="group_info" >
+                <text style="line-height:0">还差一人成团</text>
+                <text >
+                      剩余  <text class="count-down">{{countDown}}</text>
+                </text>
+            </view>
+            <button class="go_to_group" 
+                    wx:if="{{!isRegisterDone}}"
+                    open-type="getPhoneNumber"
+                    bindgetphonenumber="bindgetphonenumber">
+                <text>去拼团</text>
+            </button>
+             <button class="go_to_group" 
+                     bindtap="binNextTap"
+                     wx:else>
+                <text>去拼团</text>
+            </button>
+        </view>
+    </view>
+
+    <view class="video-container">
+        <video id="myVideo" 
+               object-fit="cover"
+               style="width:100%"
+               src="{{baseInfo.videoUrl}}" 
+               controls>
+          </video>
+    </view>
+
+    <view class="image-container">
+        <image mode="widthFix"  
+               wx:for="{{baseInfo.zhutiList}}"
+               wx:key="index"
+               src="{{item}}">
+        </image>
+    </view>
+
+    <view class="footer">
+       <!-- <view class="contact-container">
+          <image src="/images/contact.png"></image>
+          <text>客服</text>
+       </view> -->
+       <view class="button-container" 
+             wx:if="{{!isRegisterDone}}">
+            <button open-type="getPhoneNumber"
+                    bindgetphonenumber="bindgetphonenumber">
+              拼团有惊喜
+            </button>
+            <!-- <button class="left-button" 
+                    open-type="getPhoneNumber"
+                    bindgetphonenumber="bindgetphonenumber">
+                    ¥{{baseInfo.kcYuanPrice}}单独购买
+            </button>
+            <button class="right-button" 
+                    open-type="getPhoneNumber"
+                    bindgetphonenumber="bindgetphonenumber">
+                    ¥{{baseInfo.kcMailPrice}}参团购买
+            </button> -->
+       </view>
+       <view class="button-container"
+             wx:else>
+             <button bindtap="binNextTap">
+                拼团有惊喜
+            </button>
+            <!-- <button class="left-button" 
+                    bindtap="binNextTap">
+                    ¥{{baseInfo.kcYuanPrice}}单独购买
+            </button>
+            <button class="right-button"
+                    bindtap="binNextTap">
+                    ¥{{baseInfo.kcMailPrice}}拼团购买
+            </button> -->
+       </view>
+       
+
+    </view>
+
+    <view class="mask-container" 
+          bindtap="closeMask" 
+          wx:if="{{isSelectViewShow}}" 
+          catchtouchmove='ture'>
+      <view class="bottom-container">
+        <view class="bototm-header">
+            <text class="title">请选择课程</text>
+            <image bindtap="closeMask" src="/images/close.png"></image>
+        </view>
+        <scroll-view catchtap="true" scroll-y="true" style="height: 400rpx;">
+            <view wx:for="{{classTypeList}}" 
+                  wx:key="index"
+                  class="section-container">
+                <view class="title">{{item.sectionTitle}}</view>
+                <view class="content-container">
+                  <view wx:for="{{item.child}}" 
+                        bindtap="bindClassTap"
+                        data-param="{{child}}"
+                        wx:for-item="child"
+                        wx:key="index"
+                        class="content">
+                      <text >{{child.kcBaoName}}</text>
+                  </view>
+                </view>
+            </view>
+            
+        </scroll-view>
+      </view>
+    </view>
+
+</view>

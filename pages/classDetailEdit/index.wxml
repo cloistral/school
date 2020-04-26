@@ -1,0 +1,33 @@
+<view class="page">
+    <view class="input_container">
+            <text>员工码　</text>
+            <input  type="text"
+                    bindinput="bindCodeInput"
+                    placeholder="请输入员工码"
+                    value="{{param.yycode}}"
+                    placeholder-style="color:#DBDCDD"></input>
+            <view class="button-container">
+                <button bindtap="getClassTime">获取时段</button>
+            </view>
+    </view>
+    <view class="input_container">
+        <text>上课时段</text>
+        <picker mode="selector" 
+                range="{{timeList}}"
+                range-key="name"
+                value="{{param.shiduan}}"    
+                bindchange="bindTimeChange">
+              <input  disabled
+                      value="{{param.shiduan}}"
+                      placeholder-style="color:#DBDCDD"  
+                      placeholder="请选择上课时段"></input>
+        </picker>
+    </view>
+   
+    
+  <view class="success-btn">
+      <button bindtap="submit">完成</button>
+  </view>
+   
+ 
+</view>

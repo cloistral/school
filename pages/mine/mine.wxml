@@ -1,0 +1,48 @@
+<view>
+
+   
+    <view class="mine-info">
+
+        <view class="user-info-box" wx:if="{{userInfo}}">
+            <image class="head-image" src="/images/mine/default.png"></image>
+            <text class="name">{{userInfo.hzname}}</text>
+            <image class="edit" 
+                   bindtap="goToEditPage"
+                   src="/images/edit/edit.png"></image>
+        </view>
+
+        <view class="login-in-box" wx:else>
+            <button open-type="getPhoneNumber"
+                  bindgetphonenumber="bindgetphonenumber">
+                  立即登录
+            </button>
+            <image class="head-image" src="/images/mine/default.png"></image>
+        </view>
+
+    </view>
+
+    <view class="button-container serve">
+       <image src="/images/mine/order.png"></image>
+       <view>我的服务人员</view>
+       <view style="color:#000">
+         {{operate}}
+       </view>
+       <image src="/images/arrow.png"></image>
+    </view>
+
+     <view class="button-container order" bindtap="goToMyOrder">
+       <image src="/images/mine/order.png"></image>
+       <view>我的预约</view>
+        <image src="/images/arrow.png"></image>
+    </view>
+
+    <view class="button-container" bindtap="goToAboutUs">
+       <image src="/images/mine/order.png"></image>
+       <view>关于天童英语</view>
+        <image src="/images/arrow.png"></image>
+    </view>
+
+     <!-- <view class="button-container login-out" bindtap="handleLoginOut">
+        <text>退出登录</text>
+    </view> -->
+</view>

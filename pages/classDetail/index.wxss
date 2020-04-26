@@ -1,0 +1,271 @@
+/* pages/productDetail/index.wxss */
+.product-section-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+}
+
+.on-sale-container {
+  width: 100%;
+  height: 120rpx;
+  background-color: #F0D8B6;
+  box-sizing: border-box;
+  padding: 20rpx 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.on-sale {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: baseline;
+}
+
+.on-sale-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.on-sale-container text {
+  line-height: 0;
+}
+
+
+.count-down {
+  font-weight: bold;
+  color: #888;
+}
+
+.product_top {
+  width: 100%;
+  margin-bottom: -2px;
+}
+
+.section-group {
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 20px 5% 20px;
+  background-color: #FFF2EC;
+}
+
+.section-group-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding:  5px 0 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.group_username {
+  /* margin: auto 10px; */
+}
+
+.group_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  font-size: 14px;
+}
+
+.go_to_group {
+  width:200rpx;
+  height:60rpx;
+  background-color: #F44840;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-group-title {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.group_head_image {
+  border-radius: 50%;
+  width:80rpx;
+  height:80rpx;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* margin-bottom: 120rpx; */
+  padding-bottom: 120rpx;
+}
+
+.image-container image {
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  box-sizing: border-box;
+  padding: 5%;
+  z-index: 99;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+.contact-container  image {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+}
+
+.button-container button {
+  flex: 1;
+  height: 80rpx;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #F44840 ;
+}
+
+.button-container .left-button {
+  border: none;
+  
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #FA9F2B ;
+  font-size: 32rpx;
+}
+
+.button-container .right-button {
+  
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #F44840 ;
+  font-size: 38rpx;
+}
+
+
+.mask-container {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.bottom-container {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-container .bototm-header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 35rpx;
+  font-weight: 400;
+}
+
+.bototm-header image {
+  position: absolute;
+  right: 5%;
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.section-container {
+  width: 95%;
+  margin: 0 auto 10px;
+
+}
+.section-container .title {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.section-container .content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-container::after {
+  width: calc((95vw - 10px - 10px)/3);
+  content: ''
+}
+
+.content-container .content {
+  width: calc((95vw - 10px - 10px)/3);
+  height: 60rpx;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content text {
+  width: 95%;
+  height: 95%;
+  background-color: #FFF5F3;
+  color: #E07784;
+  border: 1px solid #F89FA6;
+  font-size: 30rpx;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.video-container {
+  background-color: #FFF5F3;
+  width: 100%;
+  height: 225px;
+  box-sizing: border-box;
+  padding: 0 5%;
+  
+}
