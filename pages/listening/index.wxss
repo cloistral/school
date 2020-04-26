@@ -10,7 +10,7 @@
 
 .class-menu .scroll_h {
     width: 90%;
-    height: 80rpx;
+    height: 100rpx;
     margin: auto;
     white-space: nowrap;
     display: flex;
@@ -51,7 +51,7 @@
 
 .unit-container scroll-view {
     width: 100%;
-    height: calc(100vh - 400rpx );
+    height: calc(100vh - 400rpx - 100rpx);
     box-sizing: border-box;
 }
 
@@ -112,5 +112,31 @@
 
 .unit-image-item image{
     width: 100%;
+    margin-top: 20rpx;
+}
+
+.process-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 400ms linear;
+    z-index: 999;
+    color: #fff;
+}
+
+.process-container progress {
+    width: 80vw;
+} 
+
+.process-container button {
+    font-size: 30rpx;
     margin-top: 20rpx;
 }

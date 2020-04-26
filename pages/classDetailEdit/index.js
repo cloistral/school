@@ -71,7 +71,7 @@ Page({
        
         if (!this.data.param.yycode) {
             wx.showToast({
-                title: '请填写邀请码',
+                title: '请填写员工码',
                 icon: 'none'
             })
             return;

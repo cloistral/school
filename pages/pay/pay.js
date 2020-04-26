@@ -6,7 +6,6 @@ Page({
      */
     data: {
         param: {
-            price: '',
             name: '',
             phone: '',
         }
@@ -16,14 +15,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log('options', options)
         this.setData({
-            ['param.price']: options.price,
             ['param.name']: options.name,
             ['param.phone']: options.phone
         })
     },
-
+    goTohome ()  {
+        wx.switchTab({
+            url: '/pages/home/home',
+        })
+    },
+    goToMyOrder () {
+        wx.navigateTo({
+            url: '/pages/order/order',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

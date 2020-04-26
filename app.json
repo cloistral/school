@@ -1,5 +1,6 @@
 {
     "pages": [
+        
         "pages/home/home",
         "pages/classDetail/index",
         "pages/classDetailEdit/index",

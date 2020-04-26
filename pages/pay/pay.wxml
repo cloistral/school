@@ -13,6 +13,12 @@
             <text>电话:</text>
             <text style="color:#888">{{param.phone}}</text>
         </view>
+
+        <view class="button-container">
+            <button bindtap="goTohome">返回首页</button>
+            <button bindtap="goToMyOrder">我的预约</button>
+        </view>
+
     </view>
    
 </view>

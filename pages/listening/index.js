@@ -14,9 +14,11 @@ Page({
         videoList : [],
         selectClassTypeId : 1,
         videoUrl : '',
+        isProcessShow : false,
+        downPercent : 0,
         typeList : [
-            { id : 1 , text : '视频' },
-            { id: 2, text: '图片' },
+            { id: 1, text: '视频集锦 ' },
+            { id: 2, text: '精彩瞬间' },
         ],
         mediaObject : {
             imageList : [],
@@ -41,21 +43,7 @@ Page({
             }
         }) 
     },
-    saveVideo () {
-        const downloadTask = wx.downloadFile({
-            url: data.videoUrl,
-            success: (res) => {
-                wx.saveVideoToPhotosAlbum({
-                    filePath: res.tempFilePath,
-                })
-            }
-        })
-        downloadTask.onProgressUpdate((res) => {
-            console.log('下载进度', res.progress)
-            console.log('已经下载的数据长度', res.totalBytesWritten)
-            console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
-        })
-    },
+    
     playVideo (e) {
         let videoUrl = e.currentTarget.dataset.data.url
         this.setData({
@@ -115,13 +103,23 @@ Page({
             }
         })  
     },
-
+    stopDownload () {
+        this.setData({
+            isProcessShow: false
+        })
+        wx.showToast({
+            title: '取消了下载!',
+        })
+        if (this.downloadTask) {
+            this.downloadTask.abort()
+        }
+    },
     saveVideo(e) {
         let videoUrl = e.currentTarget.dataset.data.url
-        wx.showLoading({
-            title: '下载中...',
+        this.setData({
+            isProcessShow : true
         })
-        const downloadTask = wx.downloadFile({
+        this.downloadTask = wx.downloadFile({
             url: videoUrl,
             success: (res) => {
                 wx.saveVideoToPhotosAlbum({
@@ -141,12 +139,20 @@ Page({
                         wx.hideLoading()
                     }
                 })
+            },
+            complete : () => {
+                this.setData({
+                    isProcessShow: false
+                })
             }
         })
-        downloadTask.onProgressUpdate((res) => {
-            console.log('下载进度', res.progress)
-            console.log('已经下载的数据长度', res.totalBytesWritten)
-            console.log('预期需要下载的数据总长度', res.totalBytesExpectedToWrite)
+        
+        this.downloadTask.onProgressUpdate((res) => {
+            this.setData({
+                downPercent: res.progress
+            })
+
+            console.log('预期需要下载的数据总长度', res)
         })
     },
 

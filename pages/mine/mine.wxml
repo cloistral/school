@@ -36,11 +36,11 @@
         <image src="/images/arrow.png"></image>
     </view>
 
-    <view class="button-container" bindtap="goToAboutUs">
+    <!-- <view class="button-container" bindtap="goToAboutUs">
        <image src="/images/mine/order.png"></image>
        <view>关于天童英语</view>
         <image src="/images/arrow.png"></image>
-    </view>
+    </view> -->
 
      <!-- <view class="button-container login-out" bindtap="handleLoginOut">
         <text>退出登录</text>
