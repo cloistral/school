@@ -127,7 +127,7 @@ page {
 
 .class-item .class-info .class-title {
   margin-left: -5px;
-  font-size: 32rpx;
+  font-size: 31rpx;
   background-color: #FD7321;
   color: #fff;
   font-weight: bold;

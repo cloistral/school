@@ -8,6 +8,21 @@ Page({
     data: {
         userInfo: null,
         operate : '',
+        imageInfo : {
+            width : '',
+            heigth : ''
+        }
+    },
+
+    imageLoad (e) {
+        let width = e.detail.width
+        let height = e.detail.height
+        let pi = width / height
+        let windowWidth = wx.getSystemInfoSync().windowWidth
+        this.setData({
+            'imageInfo.width': windowWidth * .95 + 'px',
+            'imageInfo.height': windowWidth * .95 / pi + 'px'
+        })
     },
 
     getOperateByCode() {

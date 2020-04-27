@@ -1,5 +1,24 @@
 <view>
-  <view class="service" wx:for="{{serviceList}}">
+   <view class="order-container" wx:for="{{serviceList}}">
+        <view class="order-item" 
+              style="font-weight:bold;color:#000;font-size: 32rpx;">
+            <text>{{item.kcname}}</text>
+        </view>
+        <view class="order-item">
+             <text>{{item.diquName}} {{item.agencyName}}</text>
+        </view>
+        <view class="order-item border">
+            <text>{{item.kcBaoNames}}</text>
+            <text>{{item.shiduan}}</text>
+        </view>
+         <view class="order-item" style="margin-top:20rpx;">
+            <text>{{item.createDate}}</text>
+            <text style="color:#63BE62">已预约</text>
+        </view>
+   </view>
+</view>
+
+ <!-- <view class="service" wx:for="{{serviceList}}">
       <view class="service-item">
             <text class="title">课程名称:　</text>
             <text class="content bold">{{item.kcname}}</text>
@@ -20,5 +39,4 @@
             <text class="title">创建时间:　</text>
             <text class="content">{{item.createDate}}</text>
       </view>
-  </view>
-</view>
+</view> -->
