@@ -23,14 +23,12 @@
 </view>
 
 <view class="video-container" hidden="{{selectClassTypeId == 2}}">
-    <video id="myVideo" src="{{videoUrl}}" autoplay="{{true}}"></video>
+    <video id="myVideo" src="{{videoUrl}}" ></video>
 </view>
 
-<view class="unit-container">
-    <!-- <view class="unit-title">单元</view> -->
-    <scroll-view scroll-y class="{{selectClassTypeId == 2 ? 'image-scroll' :'video-scroll'}}">
-        <block  wx:if="{{selectClassTypeId == 1}}">
-             <view class="unit-item" 
+<view class="unit-container" hidden="{{selectClassTypeId == 2}}">
+    <scroll-view scroll-y class="video-scroll">
+        <view class="unit-item" 
                     wx:for="{{mediaObject.videoList}}"
                     wx:key="index"
                     data-data="{{item}}"
@@ -38,7 +36,6 @@
             <!-- <text class="unit">{{item.danyuan}}</text> -->
             <text class="content">{{item.kcTitle}}</text>
             <image class="down" 
-                   
                    data-data="{{item}}"
                    bindtap="saveVideo"
                    src="/images/download.png"></image>
@@ -49,24 +46,36 @@
                    wx:else
                    src="/images/play.png"></image>
         </view>
-        </block>
        
-        <block wx:else>
-             <view class="unit-image-item" 
-                    wx:for="{{mediaObject.imageList}}"
-                    wx:key="index"
-                    data-data="{{item}}">
-                    <!-- <text class="content">{{item.kcTitle}}</text> -->
-                    <image  mode="widthFix"
-                            data-data="{{item}}"
-                            bindlongtap="saveImage"
-                            src="{{item.url}}"></image>
-                </view>
-        </block>
-       
-
     </scroll-view>
 </view>
+
+
+  <view class="swiper-container" hidden="{{selectClassTypeId == 1}}">
+    <swiper interval="2000"
+            indicator-dots="{{true}}"
+            indicator-active-color="#fff"
+            style="height:{{swiperInfo.height}}"
+            autoplay="{{false}}">
+        <block wx:for="{{mediaObject.imageList}}" wx:key="index">
+          <swiper-item>
+                <view class="unit-image-item"  >
+                      <image  mode="scaleToFill"
+                              style="width:100%"
+                              lazy-load
+                              bindload="imageLoad"
+                              data-data="{{item}}"
+                              bindlongtap="saveImage"
+                              src="{{item.url}}">
+                      </image>
+                </view>
+            </swiper-item>    
+        </block>
+    </swiper>
+  </view>
+
+
+
 
 
 <view class="process-container" wx:if="{{isProcessShow}}">

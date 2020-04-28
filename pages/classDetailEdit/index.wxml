@@ -10,7 +10,7 @@
                 <button bindtap="getClassTime">获取时段</button>
             </view>
     </view>
-    <view class="input_container">
+    <view class="input_container" hidden="{{timeList.length == 0}}">
         <text>上课时段</text>
         <picker mode="selector" 
                 range="{{timeList}}"

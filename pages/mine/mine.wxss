@@ -92,7 +92,7 @@ page {
 }
 
 .button-container.order {
-    margin-bottom: 1px;
+    margin-bottom: 20rpx;
 }
 
 .button-container view {
@@ -119,7 +119,7 @@ page {
 
 .mine-image-bottom {
     width: 95%;
-    margin: 20rpx auto 0;
+    margin: 40rpx auto 0;
 }
 
 .mine-image-bottom image {

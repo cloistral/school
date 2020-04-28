@@ -14,17 +14,16 @@ const request = function (param) {
     method: param.method,
     dataType: 'json',
     success: function (res) {
+      wx.hideLoading()
       if (param.success) {
         param.success(res.data)
       }
     },
     fail: function (err) {
+      wx.hideLoading()
       if (param.fail) {
         param.fail(err)
       }
-    },
-    complete: function (res) {
-        wx.hideLoading()
     },
   })
 }

@@ -38,7 +38,18 @@ Page({
                 icon:'none'
             })
             return
+        }else {
+            let reg = /^[0-9]{5}$/
+            if(!reg.test(this.data.param.yycode)) {
+                wx.showToast({
+                    title: '员工码不符合规则!',
+                    icon: 'none'
+                })
+                return
+            }
         }
+
+
         selectShiduan({
             data: {
                 kcid: this.data.param.kcid,

@@ -24,7 +24,13 @@ Page({
             'imageInfo.height': windowWidth * .95 / pi + 'px'
         })
     },
-
+    makePhoneCall () {
+        if(this.data.userInfo.yyMobile) {
+            wx.makePhoneCall({
+                phoneNumber: this.data.userInfo.yyMobile,
+            })
+        }
+    },
     getOperateByCode() {
         let yqcode = app.globalData.userInfo.data.yqcode
         yqcode && getOperateByCode({

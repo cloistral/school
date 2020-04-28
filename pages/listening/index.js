@@ -12,17 +12,21 @@ Page({
         kcShiluId : '' ,
         classTypeList : [],
         videoList : [],
-        selectClassTypeId : 1,
+        selectClassTypeId : 2,
         videoUrl : '',
         isProcessShow : false,
         downPercent : 0,
         typeList : [
-            { id: 1, text: '视频集锦 ' },
             { id: 2, text: '精彩瞬间' },
+            { id: 1, text: '视频集锦 ' },
         ],
         mediaObject : {
             imageList : [],
             videoList : []
+        },
+        swiperInfo: {
+            width: '',
+            height: ''
         }
     },
     onReady: function (res) {
@@ -71,21 +75,9 @@ Page({
         })
         this.__initData()
     },
-    __initData () {
-        //获取视频
-        getWatchRecord({
-            data: { shiluTypeId: 1},
-            success : (res) => {
-                let list = res.data.jianzhenglist || []
-                list && list.forEach( item => {
-                    item.url = app.globalData.baseUrl + item.videoUrl
-                })
-                this.setData({
-                    'videoUrl' : list[0].url,
-                    ['mediaObject.videoList']: res.data.jianzhenglist
-                })
-            }
-        })
+
+
+    getImageList () {
         //获取图片
         getWatchRecord({
             data: { shiluTypeId: 2 },
@@ -98,21 +90,41 @@ Page({
                     ['mediaObject.imageList']: list
                 })
                 console.log(this.data.mediaObject)
-                
+
             }
         })
+    },
 
-        return
-        listenDetail({
-            data: { kcShiluId: this.data.kcShiluId },
-            success : (res) => {
+    getVideoList () {
+        //获取视频
+        getWatchRecord({
+            data: { shiluTypeId: 1 },
+            success: (res) => {
+                let list = res.data.jianzhenglist || []
+                list && list.forEach(item => {
+                    item.url = app.globalData.baseUrl + item.videoUrl
+                })
                 this.setData({
-                    classTypeList: res.data.kcshilutypelist,
-                    videoList: res.data.videolist,
-                    videoUrl: app.globalData.baseUrl + res.data.videolist[0].videoUrl
+                    'videoUrl': list[0].url,
+                    ['mediaObject.videoList']: res.data.jianzhenglist
                 })
             }
-        })  
+        })
+    },
+
+    __initData () {
+        this.getImageList()
+        this.getVideoList()
+    },
+    imageLoad(e) {
+        let width = e.detail.width
+        let height = e.detail.height
+        let pi = width / height
+        let windowWidth = wx.getSystemInfoSync().windowWidth
+        this.setData({
+            'swiperInfo.width': windowWidth * .95 + 'px',
+            'swiperInfo.height': windowWidth * .95 / pi + 'px'
+        })
     },
     stopDownload () {
         this.setData({
@@ -133,25 +145,26 @@ Page({
         this.downloadTask = wx.downloadFile({
             url: videoUrl,
             success: (res) => {
+                wx.hideLoading()
                 wx.saveVideoToPhotosAlbum({
                     filePath: res.tempFilePath,
                     success: () => {
                         wx.showToast({
                             title: '保存成功',
+                            duration : 3000,
                         })
                     },
                     fail: () => {
                         wx.showToast({
                             title: '保存失败',
-                            icon: 'none'
+                            icon: 'none',
+                            duration: 3000,
                         })
                     },
-                    complete: () => {
-                        wx.hideLoading()
-                    }
                 })
             },
             complete : () => {
+                
                 this.setData({
                     isProcessShow: false
                 })
@@ -180,12 +193,14 @@ Page({
                     success : () => {
                         wx.showToast({
                             title: '保存成功',
+                            duration: 3000,
                         })
                     },
                     fail : () => {
                         wx.showToast({
                             title: '保存失败',
-                            icon : 'none'
+                            icon : 'none',
+                            duration: 3000,
                         })
                     },
                     complete : () => {

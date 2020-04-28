@@ -20,6 +20,12 @@ Page({
               this.setData({
                   serviceList : res.data
               })
+              if(res.data.length == 0) {
+                  wx.showToast({
+                      title: '暂无数据',
+                      icon : 'none'
+                  })
+              }
           }
       })
   },

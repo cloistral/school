@@ -108,8 +108,8 @@
 
 
 .unit-image-item {
-     width: 90%;
-    height: auto;
+    width: 90%;
+    height: 100%;
     margin: 50rpx auto 0;
     display: flex;
     flex-direction: column;
@@ -119,7 +119,7 @@
 
 .unit-image-item image{
     width: 100%;
-    margin-top: 20rpx;
+    height: 100%
 }
 
 .process-container {

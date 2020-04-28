@@ -1,4 +1,13 @@
-<view>
-  <text class="title">关于天童英语</text>
-  <text class="content">关于天童英语</text>
+<!-- <view class="about-container">
+  <text class="title">天天童美语</text>
+  <text class="content"></text>
+</view> -->
+
+
+<view class="title">
+    天天童美语
+</view>
+
+<view class="image-container">
+    <image mode="widthFix" src="/images/mine/mine_bottom.png"></image>
 </view>
