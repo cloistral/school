@@ -124,6 +124,8 @@ Page({
     },
 
     onShareAppMessage: function() {
-
+        return {
+            title : '侧事故'
+        }
     }
 })

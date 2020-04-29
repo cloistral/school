@@ -18,9 +18,16 @@ Page({
             yycode: '',
             shiduan: ''
         },
+        isHidePicker : true,
+        timeValue : [0],
         timeList: [],
     },
-
+    showPicker () {
+        this.setData({
+            isHidePicker : false
+        })
+        // console.log(1111, this.data.isHidePicker)
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -58,13 +65,15 @@ Page({
             success: (res) => {
                 let tempList = []
                 if(res.code == 0) {
+
                     res.data.forEach(item => {
-                        let param = {
-                            name: item.xingqi + '　' + item.shiduan,
-                            id: item.id,
-                        }
-                        tempList.push(param)
+                        // let param = {
+                        //     name: item.xingqi + '　' + item.shiduan,
+                        //     id: item.id,
+                        // }
+                        tempList.push(item.xingqi + '　' + item.shiduan)
                     })
+
                     this.setData({
                         timeList: tempList
                     })
@@ -117,6 +126,24 @@ Page({
         })
 
 
+    },
+    customPickerChange (e) {
+        this.setData({
+            timeValue: e.detail.value
+        })
+    },
+    handleTap(e) {
+        let type = e.currentTarget.dataset.type 
+       
+        this.setData({
+            isHidePicker : true
+        })
+        if(type == 'confirm') {
+            let index = this.data.timeValue[0]
+            this.setData({
+                ['param.shiduan']: this.data.timeList[index]
+            })
+        }
     },
     bindTimeChange(e) {
         let index = e.detail.value

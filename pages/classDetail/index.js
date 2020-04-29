@@ -277,9 +277,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function(e) {
-        // return {
-        //     title: '天童快乐美语线上体验课',
-        //     path: '/pages/classDetail/index?id=' + this.data.kcid
-        // }
+        return {
+            title: '天童快乐美语线上体验课',
+            // path: '/pages/classDetail/index?id=' + this.data.kcid
+        }
     }
 })
