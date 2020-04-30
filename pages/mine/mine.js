@@ -121,6 +121,8 @@ Page({
         })
     },
     onShareAppMessage: function () {
-
+        return {
+            title: '天童云课堂'
+        }
     }
 })

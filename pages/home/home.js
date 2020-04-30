@@ -125,7 +125,7 @@ Page({
 
     onShareAppMessage: function() {
         return {
-            title : '侧事故'
+            title: '天童云课堂'
         }
     }
 })

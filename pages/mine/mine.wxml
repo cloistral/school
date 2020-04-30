@@ -45,8 +45,8 @@
 
      <view class="button-container order" bindtap="goToAboutUs">
        <image class="menu-icon" src="/images/mine/order.png"></image>
-       <view>关于我们</view>
-        <image src="/images/arrow.png"></image>
+       <view>如何上课</view>
+       <image src="/images/arrow.png"></image>
     </view>
 </view>
 

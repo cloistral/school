@@ -1,13 +1,36 @@
-<!-- <view class="about-container">
-  <text class="title">天天童美语</text>
-  <text class="content"></text>
-</view> -->
 
+<view class="about-container">
+    <view class="title">
+        1.中教课程请扫码按设备进行下载
+    </view>
+    <view class="image-container" bindtap="previewImage">
+        <image style="width:50%" mode="widthFix" src="/images/mine/qr.png"></image>
+    </view>
+    <view class="title">
+        2.外教课程请按照年龄段进行下载
+    </view>
+    <view class="image-container">
+        <image style="width:30vw" mode="widthFix" src="/images/mine/en_1.png"></image>
+        <image style="width:30vw" mode="widthFix" src="/images/mine/en_2.png"></image>
+    </view>
 
-<view class="title">
-    天天童美语
+    <view class="title">
+        4-6岁 S1级 下载天天童学（绿色底）
+    </view>
+
+    <view class="title" >
+        6-8岁 S2级 下载天天童学基础进阶（蓝色底）
+    </view>
+
+    <view class="title">
+        8岁以上 S3级 下载天天童学基础进阶（蓝色底）
+    </view>
+
+    <view class="image-container" style="padding-bottom:50px;">
+        <image mode="widthFix" src="/images/mine/mine_bottom.png"></image>
+    </view>
 </view>
 
-<view class="image-container">
-    <image mode="widthFix" src="/images/mine/mine_bottom.png"></image>
-</view>
+
+
+
