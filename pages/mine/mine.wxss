@@ -97,7 +97,15 @@ page {
 
 .button-container view {
     flex: 1;
+    white-space: nowrap;
 }
+
+.button-container .content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 
 .button-container.login-out {
     align-items: center;

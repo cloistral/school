@@ -54,7 +54,7 @@
             <picker-view-column>
                 <view class="time-cell" 
                       wx:for="{{timeList}}"
-                      wx:key="index">{{item}}</view>
+                      wx:key="index">{{item.label}}</view>
             </picker-view-column>
         </picker-view>
     </view>

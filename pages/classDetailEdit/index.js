@@ -71,7 +71,10 @@ Page({
                         //     name: item.xingqi + '　' + item.shiduan,
                         //     id: item.id,
                         // }
-                        tempList.push(item.xingqi + '　' + item.shiduan)
+                        tempList.push({ 
+                            label: item.xingqi + '　' + item.shiduan, 
+                            value: item.id
+                        })
                     })
 
                     this.setData({
@@ -141,16 +144,12 @@ Page({
         if(type == 'confirm') {
             let index = this.data.timeValue[0]
             this.setData({
-                ['param.shiduan']: this.data.timeList[index]
+                ['param.shiduan']: this.data.timeList[index].label,
+                ['param.shiduanId']: this.data.timeList[index].value
             })
         }
     },
-    bindTimeChange(e) {
-        let index = e.detail.value
-        this.setData({
-            ['param.shiduan']: this.data.timeList[index].name
-        })
-    },
+    
     bindCodeInput(e) {
         this.setData({
             ['param.yycode']: e.detail.value,

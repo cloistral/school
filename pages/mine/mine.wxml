@@ -30,8 +30,8 @@
 <view class="button-box">
     <view class="button-container serve" bindtap="makePhoneCall">
        <image class="menu-icon" src="/images/mine/order.png"></image>
-       <view>我的服务人员</view>
-       <view style="color:#000;">
+       <view class="title">服务人员</view>
+       <view class="content" style="color:#000;flex:2">
          {{operate}}
        </view>
        <!-- <image src="/images/arrow.png"></image> -->
@@ -39,13 +39,13 @@
 
      <view class="button-container order" bindtap="goToMyOrder">
        <image class="menu-icon" src="/images/mine/order.png"></image>
-       <view>我的预约</view>
-        <image src="/images/arrow.png"></image>
+       <view class="title">我的预约</view>
+       <image src="/images/arrow.png"></image>
     </view>
 
      <view class="button-container order" bindtap="goToAboutUs">
        <image class="menu-icon" src="/images/mine/order.png"></image>
-       <view>如何上课</view>
+       <view class="title">如何上课</view>
        <image src="/images/arrow.png"></image>
     </view>
 </view>
