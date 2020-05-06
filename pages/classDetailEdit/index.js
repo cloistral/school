@@ -60,19 +60,17 @@ Page({
         selectShiduan({
             data: {
                 kcid: this.data.param.kcid,
-                yycode: this.data.param.yycode
+                yycode: this.data.param.yycode,
+                jzid: app.globalData.userInfo.data.id
             },
             success: (res) => {
                 let tempList = []
                 if(res.code == 0) {
 
                     res.data.forEach(item => {
-                        // let param = {
-                        //     name: item.xingqi + '　' + item.shiduan,
-                        //     id: item.id,
-                        // }
+                        
                         tempList.push({ 
-                            label: item.xingqi + '　' + item.shiduan, 
+                            label: `${item.xingqi} ${item.shiduan} / ${item.xingqi2} ${item.shiduan2}`, 
                             value: item.id
                         })
                     })
