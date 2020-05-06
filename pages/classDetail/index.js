@@ -18,6 +18,7 @@ Page({
         isSelectViewShow: false,
         isRegisterDone: null,
         kcid: '',
+        classType : '',
         classTypeList: [],
         baseInfo: {},
         groupList: [{
@@ -46,7 +47,8 @@ Page({
         timer = setInterval(this.countDown, 1000)
 
         this.setData({
-            kcid: options.id
+            kcid: options.id,
+            classType : options.type
         })
         this.getClassDetail()
 
@@ -244,6 +246,16 @@ Page({
                         zhutiList.push(app.globalData.baseUrl + data[key])
                     }
                 }
+
+                if(this.data.classType == 'en') {
+                    for(let i = 1 ; i < 5 ; i++ ) {
+                        let key = 'waijiaoimg' + i
+                        if (data.hasOwnProperty(key) && data[key]) {
+                            zhutiList.push(app.globalData.baseUrl + data[key])
+                        }
+                    }
+                }
+
                 data.swiperList = swiperList
                 data.zhutiList = zhutiList
                 data.videoUrl = app.globalData.baseUrl + data.videoUrl

@@ -22,6 +22,7 @@ Page({
         ],
         mediaObject : {
             imageList : [],
+            imageList3 : [],
             videoList : []
         },
         swiperInfo: {
@@ -83,11 +84,16 @@ Page({
             data: { shiluTypeId: 2 },
             success: (res) => {
                 let list = res.data.jianzhenglist || []
+                let list3 = res.data.jianzhenglist3 || []
                 list.forEach(item => {
                     item.url = app.globalData.baseUrl + item.imgUrl
                 })
+                list3.forEach(item => {
+                    item.url = app.globalData.baseUrl + item.imgUrl
+                })
                 this.setData({
-                    ['mediaObject.imageList']: list
+                    ['mediaObject.imageList']: list,
+                    ['mediaObject.imageList3']: list3,
                 })
                 console.log(this.data.mediaObject)
 

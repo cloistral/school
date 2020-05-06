@@ -40,10 +40,10 @@ Page({
         })
     },
     handleToClassDetail(e) {
-        
         let id = e.currentTarget.dataset.data.id
+        let type = e.currentTarget.dataset.data.kcTypeName == '中教课' ? 'zh' : 'en'
         wx.navigateTo({
-            url: '/pages/classDetail/index?id=' + id,
+            url: `/pages/classDetail/index?id=${id}&type=${type}`,
         })
     },
     

@@ -29,10 +29,10 @@
 <view class="unit-container" hidden="{{selectClassTypeId == 2}}">
     <scroll-view scroll-y class="video-scroll">
         <view class="unit-item" 
-                    wx:for="{{mediaObject.videoList}}"
-                    wx:key="index"
-                    data-data="{{item}}"
-                    bindtap="playVideo">
+              wx:for="{{mediaObject.videoList}}"
+              wx:key="index"
+              data-data="{{item}}"
+              bindtap="playVideo">
             <!-- <text class="unit">{{item.danyuan}}</text> -->
             <text class="content">{{item.kcTitle}}</text>
             <image class="down" 
@@ -51,19 +51,17 @@
 </view>
 
 
-  <view class="swiper-container" hidden="{{selectClassTypeId == 1}}">
+<view class="swiper-container" hidden="{{selectClassTypeId == 1}}">
     <swiper interval="2000"
             indicator-dots="{{true}}"
             indicator-active-color="#fff"
-            style="height:{{swiperInfo.height}}"
             autoplay="{{false}}">
         <block wx:for="{{mediaObject.imageList}}" wx:key="index">
           <swiper-item>
                 <view class="unit-image-item"  >
-                      <image  mode="scaleToFill"
-                              style="width:100%"
+                      <image  
+                              class="swiper-image"
                               lazy-load
-                              bindload="imageLoad"
                               data-data="{{item}}"
                               bindlongtap="saveImage"
                               src="{{item.url}}">
@@ -72,8 +70,26 @@
             </swiper-item>    
         </block>
     </swiper>
-  </view>
 
+    <swiper interval="2000"
+            indicator-dots="{{true}}"
+            indicator-active-color="#fff"
+            autoplay="{{false}}">
+            <block wx:for="{{mediaObject.imageList}}" wx:key="index">
+                <swiper-item>
+                        <view class="unit-image-item"  >
+                            <image  
+                                    class="swiper-image"
+                                    lazy-load
+                                    data-data="{{item}}"
+                                    bindlongtap="saveImage"
+                                    src="{{item.url}}">
+                            </image>
+                        </view>
+                </swiper-item>    
+            </block>
+    </swiper>
+</view>
 
 
 
