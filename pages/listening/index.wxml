@@ -75,7 +75,7 @@
             indicator-dots="{{true}}"
             indicator-active-color="#fff"
             autoplay="{{false}}">
-            <block wx:for="{{mediaObject.imageList}}" wx:key="index">
+            <block wx:for="{{mediaObject.imageList3}}" wx:key="index">
                 <swiper-item>
                         <view class="unit-image-item"  >
                             <image  
