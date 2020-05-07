@@ -18,7 +18,7 @@ Page({
         downPercent : 0,
         typeList : [
             { id: 2, text: '精彩瞬间' },
-            { id: 1, text: '视频集锦 ' },
+            // { id: 1, text: '视频集锦 ' },
         ],
         mediaObject : {
             imageList : [],

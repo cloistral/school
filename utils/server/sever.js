@@ -69,6 +69,17 @@ const registerUser = function (param) {
 }
 
 
+const editUser = function (param) {
+    request({
+        url: '/api/ab/parentUpdate',
+        data: param.data,
+        method: 'post',
+        success(res) {
+            param.success(res)
+        }
+    })
+}
+
 const getOperateByCode = function (param) {
     request({
         url: '/api/ab/checkYyInfo',
@@ -102,5 +113,6 @@ module.exports = {
   getWxPayInfo, // 获取位置支付相关参数
   registerUser, //注册用户
   getMyService, //获取我的预约课程
-  getOperateByCode //获取我的服务人员
+  getOperateByCode, //获取我的服务人员
+  editUser // 编辑用户信息
 }
