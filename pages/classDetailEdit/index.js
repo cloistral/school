@@ -61,7 +61,9 @@ Page({
             data: {
                 kcid: this.data.param.kcid,
                 yycode: this.data.param.yycode,
+                kcBaoid: this.data.param.kcBaoid,
                 jzid: app.globalData.userInfo.data.id
+
             },
             success: (res) => {
                 let tempList = []

@@ -108,7 +108,7 @@
 
 
 .unit-image-item {
-    width: 90%;
+    width: 80%;
     /* height: calc((100vh - 100rpx)/2); */
     margin: 50rpx auto 0;
     display: flex;
