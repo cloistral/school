@@ -112,7 +112,6 @@ Page({
                 list.forEach(item => {
                     item.topImg = app.globalData.baseUrl + item.topImg
                 })
-                console.log(list)
                 this.setData({
                     recommendClassList: list
                 })

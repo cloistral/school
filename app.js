@@ -8,7 +8,6 @@ const {
 App({
     onLaunch: function() {
         this.getUserInfo()
-        console.log(11111)
     },
     //获取用户信息
     getUserInfo() {
