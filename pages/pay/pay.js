@@ -1,4 +1,7 @@
 // pages/pay/pay.js
+
+const app = getApp()
+
 Page({
 
     /**
@@ -6,8 +9,9 @@ Page({
      */
     data: {
         param: {
-            name: '',
-            phone: '',
+            name: '', //预约人员姓名
+            phone: '', //预约人员电话
+            className : '',//预约课程名称
         }
     },
 
@@ -17,8 +21,11 @@ Page({
     onLoad: function(options) {
         this.setData({
             ['param.name']: options.name,
-            ['param.phone']: options.phone
+            ['param.phone']: options.phone,
+            ['param.className']: app.globalData.currentClass && app.globalData.currentClass.kcName || ''
         })
+        //清空当前记录
+        app.globalData.currentClass = null
     },
     goTohome ()  {
         wx.switchTab({

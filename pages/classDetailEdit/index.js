@@ -35,7 +35,7 @@ Page({
         this.setData({
             'param.kcid': options.kcid,
             'param.kcBaoid': options.kcBaoid,
-            'param.jzid': app.globalData.userInfo.data.id
+            'param.jzid': app.globalData.userInfo.data.id,
         })
     },
     getClassTime () {
@@ -55,7 +55,6 @@ Page({
                 return
             }
         }
-
 
         selectShiduan({
             data: {

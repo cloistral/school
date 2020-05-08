@@ -1,7 +1,10 @@
 <view>
     <view class="pay-info-container">
         <image src="/images/pay/pay_success.png"></image>
-        <text class="pay-info">课程预约成功</text>
+        <text class="pay-info">
+            <text>{{param.className}}</text>
+            <text>课程预约成功</text>
+        </text>
         <!-- <text class="money">¥{{param.price}}</text> -->
          <!-- <view class="pay-way">
             <text style="color:#888">支付方式</text>

@@ -97,6 +97,7 @@ Page({
             isSelectViewShow: false
         })
         let param = e.currentTarget.dataset.param
+        app.globalData.currentClass = this.data.baseInfo
         wx.navigateTo({
             url: `/pages/classDetailEdit/index?kcid=${this.data.kcid}&kcBaoid=${param.id}`,
         })
@@ -150,10 +151,16 @@ Page({
 
     //当此用户已经在后台注册过了
     binNextTap() {
-        this.setData({
-            isSelectViewShow: true
-        })
-
+        if (this.data.classTypeList.length > 0) {
+            this.setData({
+                isSelectViewShow: true
+            })
+        }else {
+            wx.showToast({
+                title: '当前课程暂无课程包',
+                icon : 'none'
+            })
+        }
     },
 
     //获取用户手机号
@@ -184,27 +191,6 @@ Page({
         }
     },
 
-
-    //获取课程分类
-    getClassType() {
-        getClassTypeList({
-            success: (res) => {
-                let resList = res.data
-                let cacheList = this.uniqClassType(resList)
-                cacheList.forEach(cache => {
-                    resList.forEach(item => {
-                        if (cache.id === item.agebiaoshi) {
-                            cache.sectionTitle = item.ageduan
-                            cache.child.push(item)
-                        }
-                    })
-                })
-                this.setData({
-                    classTypeList: cacheList
-                })
-            }
-        })
-    },
 
     uniqClassType(array) {
         let temp = []

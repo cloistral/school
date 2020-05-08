@@ -37,7 +37,9 @@
        <!-- <image src="/images/arrow.png"></image> -->
     </view>
 
-     <view class="button-container order" bindtap="goToMyOrder">
+     <view class="button-container order" 
+           wx:if="{{userInfo}}"   
+           bindtap="goToMyOrder">
        <image class="menu-icon" src="/images/mine/order.png"></image>
        <view class="title">我的预约</view>
        <image src="/images/arrow.png"></image>

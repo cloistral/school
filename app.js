@@ -49,6 +49,7 @@ App({
             sessionKey: null,
             data: null
         },
+        currentClass : null,
         baseUrl: 'https://www.5itt.top',
     }
 })
