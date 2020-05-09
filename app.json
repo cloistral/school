@@ -1,8 +1,6 @@
 {
     "pages": [
-        "pages/employeeEdit/index",
-        "pages/employee/index",
-        "pages/employeeDetail/index",
+        
         "pages/home/home",
         "pages/classDetail/index",
         "pages/classDetailEdit/index",
@@ -12,6 +10,9 @@
         "pages/about/about",
         "pages/order/order",
         "pages/listening/index",
+        "pages/employeeEdit/index",
+        "pages/employee/index",
+        "pages/employeeDetail/index",
         "pages/classList/index"
         
     ],

@@ -1,20 +1,51 @@
-
-<view>
-   <view class="order-container" wx:for="{{5}}">
+<view wx:if="{{type == 'statistics'}}">
+   <view class="order-container" wx:for="{{data}}">
         <view class="order-item" 
               style="font-weight:bold;color:#000;font-size: 32rpx;">
-            <text>{{item}}</text>
+            <text>{{item.banxing}} {{item.banjiname ? (' · ' +item.banjiname) : ''}}</text>
         </view>
         <view class="order-item">
-             <text>{{item}} {{item}}</text>
-             <text>{{item}}</text>
+             <text> 上课教师: {{item.teacher}}</text>
         </view>
-        <view class="order-item border">
-            <text style="width:100%">{{item}}</text>
+
+        <view class="order-item">
+            <text> 上课人数: {{ item.renshu}}</text>
+            <text> 上限人数: {{ item.sxrenshu}}</text>
         </view>
-         <view class="order-item" style="margin-top:20rpx;">
-            <text>{{item}}</text>
+
+        <view class="order-item ">
+            <text style="width:100%">{{item.shiduan}}</text>
+        </view>
+         <!-- <view class="order-item" style="margin-top:20rpx;">
+            <text>{{item.createTime ? item.createTime  : ''}}</text>
             <text style="color:#63BE62">已预约</text>
+        </view> -->
+   </view>
+</view>
+
+<view wx:if="{{type == 'parent'}}">
+   <view class="order-container" wx:for="{{data}}">
+        <view class="order-item" 
+              style="font-weight:bold;color:#000;font-size: 32rpx;">
+            <text>{{item.hzname}}</text>
+            <!-- <text style="color:#8a8a8a">{{item.sex == 1 ? '女孩': '男孩'}}</text> -->
+        </view>
+        <view class="order-item" 
+              bindtap="makePhone"
+              data-mobile="{{item.mobile}}">
+             <text>
+                <text>手机号:</text>
+                <text style="color:#63be62">{{item.mobile}}</text>
+            </text>
+        </view>
+        <view class="order-item">
+             <text>生日: {{item.bak1}}</text>
+        </view>
+         <view class="order-item">
+             <text>班型: {{item.banxing}}</text>
+        </view>
+        <view class="order-item">
+            <text style="width:100%">注册日期: {{item.createTime}}</text>
         </view>
    </view>
 </view>

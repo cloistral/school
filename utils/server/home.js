@@ -92,6 +92,34 @@ const getWatchRecord = function (param) {
     })
 }
 
+
+const getParentList = function (param) {
+    request({
+        url: "/api/ab/ygcheckParents",
+        data: param.data,
+        method: 'post',
+        success(res) {
+            if (param.success) {
+                param.success(res)
+            }
+        }
+    })
+}
+
+
+const getStatistics = function (param) {
+    request({
+        url: "/api/ab/ygcheckSklog",
+        data: param.data,
+        method: 'post',
+        success(res) {
+            if (param.success) {
+                param.success(res)
+            }
+        }
+    })
+}
+
 module.exports = {
     getHomeInfo,
     getRecommendClassList, //获取首页推荐视频
@@ -100,4 +128,6 @@ module.exports = {
     listenDetailVideoById ,
     tuijianKclist , //首页推荐的视频
     getWatchRecord,
+    getParentList , //员工获取家长列表
+    getStatistics , //员工查看上课情况统计
 }

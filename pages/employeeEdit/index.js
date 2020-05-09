@@ -33,11 +33,7 @@ Page({
     },
     submit() {
 
-        let type = this.data.type 
-        let { yycode , mobile} = this.data.param
-        wx.navigateTo({
-          url: `/pages/employeeDetail/index?type=${type}&yycode=${yycode}&mobile=${mobile}`,
-        })
+        
 
         let reg = /^[0-9]{5}$/
         if(!this.data.param.yycode) {
@@ -72,7 +68,12 @@ Page({
                 return
             }
         }
-
+        
+        let type = this.data.type 
+        let { yycode , mobile} = this.data.param
+        wx.navigateTo({
+          url: `/pages/employeeDetail/index?type=${type}&yycode=${yycode}&mobile=${mobile}`,
+        })
     
       
 

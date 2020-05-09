@@ -120,6 +120,7 @@ Page({
     },
 
     goToEditPage() {
+        return;
         let data = this.data.userInfo
         let url = `/pages/edit/edit?phone=${data.mobile || ''}&hzname=${data.hzname || ''}&birthday=${data.bak1 || ''}&sex=${data.sex || 0}&yqcode=${data.yqcode || ''}&type=edit`
         wx.navigateTo({
