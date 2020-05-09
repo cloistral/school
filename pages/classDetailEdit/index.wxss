@@ -149,3 +149,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.input_container .tip {
+    font-size: 28rpx;
+    color: #fd7321;
+}

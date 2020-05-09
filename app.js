@@ -50,6 +50,7 @@ App({
             data: null
         },
         currentClass : null,
+        emlpoyeeData : [],
         baseUrl: 'https://www.5itt.top',
     }
 })

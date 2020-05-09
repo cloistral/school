@@ -3,6 +3,11 @@
     <view class="image-container">
         <image mode="widthFix"  src="/images/mine/mine_bottom.png"></image>
     </view>
+
+    <view class="input_container">
+        <text class="tip">提示:如上课时段已满额,请再次点击获取时段按钮!</text>
+    </view>
+
     <view class="input_container bg">
             <view class="title">员工码</view>
             <input  type="text"

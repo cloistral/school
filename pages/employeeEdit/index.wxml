@@ -23,6 +23,6 @@
             </input>
     </view>
      <view class="success-btn">
-        <button bindtap="submit">完成</button>
+        <button bindtap="submit">搜索</button>
     </view>
 </view>

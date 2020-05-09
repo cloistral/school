@@ -1,10 +1,6 @@
 // pages/employeeDetail/index.js
 
-const {
-    getParentList,
-    getStatistics
-} = require('../../utils/server/home')
-
+const app = getApp()
 Page({
 
     /**
@@ -13,10 +9,6 @@ Page({
     data: {
         data: [],
         type: '',
-        param: {
-            yycode: '',
-            yymobile: '',
-        }
     },
 
     /**
@@ -25,14 +17,14 @@ Page({
     onLoad: function (options) {
         this.setData({
             type: options.type,
-            ['param.yycode']: options.yycode,
-            'param.yymobile': options.mobile
+            data : app.globalData.emlpoyeeData 
         })
 
     },
-
-
-    /**
+    onUnload () {
+        app.globalData.emlpoyeeData  = []
+    },
+    /** 
      * 生命周期函数--监听页面显示
      */
 
@@ -42,56 +34,6 @@ Page({
         if (phone) {
             wx.makePhoneCall({
                 phoneNumber: phone
-            })
-        }
-    },
-
-    onShow: function () {
-        let type = this.data.type
-        let param = this.data.param
-        if (type == 'statistics') {
-            getStatistics({
-                data: param,
-                success: (res) => {
-                    if (res.code == 0) {
-                        this.setData({
-                            data: res.data
-                        })
-                        if (!res.data || res.data.length == 0) {
-                            wx.showToast({
-                                title: '暂无数据',
-                                icon: 'none'
-                            })
-                        }
-                    } else {
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'none'
-                        })
-                    }
-                }
-            })
-        } else if (type == 'parent') {
-            getParentList({
-                data: param,
-                success: (res) => {
-                    if (res.code == 0) {
-                        this.setData({
-                            data: res.data
-                        })
-                        if (!res.data || res.data.length == 0) {
-                            wx.showToast({
-                                title: '暂无数据',
-                                icon: 'none'
-                            })
-                        }
-                    } else {
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'none'
-                        })
-                    }
-                }
             })
         }
     },

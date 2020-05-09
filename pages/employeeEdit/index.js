@@ -1,4 +1,11 @@
 // pages/employeeEdit/index.js
+
+const app = getApp()
+const {
+    getParentList,
+    getStatistics
+} = require('../../utils/server/home')
+
 Page({
 
     /**
@@ -33,16 +40,16 @@ Page({
     },
     submit() {
 
-        
+
 
         let reg = /^[0-9]{5}$/
-        if(!this.data.param.yycode) {
+        if (!this.data.param.yycode) {
             wx.showToast({
                 title: '请输入员工码!',
                 icon: 'none'
             })
             return;
-        }else {
+        } else {
             if (!reg.test(this.data.param.yycode)) {
                 wx.showToast({
                     title: '员工码不符合规则!',
@@ -51,14 +58,14 @@ Page({
                 return
             }
         }
-        
-        if(!this.data.param.mobile) {
+
+        if (!this.data.param.mobile) {
             wx.showToast({
                 title: '请输入手机号!',
                 icon: 'none'
             })
             return
-        }else {
+        } else {
             let phoneReg = /^1\d{10}$/
             if (!phoneReg.test(this.data.param.mobile)) {
                 wx.showToast({
@@ -68,15 +75,52 @@ Page({
                 return
             }
         }
-        
-        let type = this.data.type 
-        let { yycode , mobile} = this.data.param
-        wx.navigateTo({
-          url: `/pages/employeeDetail/index?type=${type}&yycode=${yycode}&mobile=${mobile}`,
-        })
-    
-      
+        this.initData()
 
+    },
+    initData: function () {
+        let type = this.data.type
+        let param = this.data.param
+        if (type == 'statistics') {
+            getStatistics({
+                data: param,
+                success: (res) => {
+                    this.editData(res)
+                }
+            })
+        } else if (type == 'parent') {
+            getParentList({
+                data: param,
+                success: (res) => {
+                    this.editData(res)
+                }
+            })
+        }
+    },
+    editData(res) {
+        if (res.code == 0) {
+            this.setData({
+                data: res.data
+            })
+            if (!res.data || res.data.length == 0) {
+                wx.showToast({
+                    title: '暂无数据',
+                    icon: 'none'
+                })
+            }else {
+                app.globalData.emlpoyeeData = res.data
+                let type = this.data.type
+                wx.navigateTo({
+                    url: `/pages/employeeDetail/index?type=${type}`,
+                })
+            }
+            
+        } else {
+            wx.showToast({
+                title: res.msg,
+                icon: 'none'
+            })
+        }
     }
 
 })

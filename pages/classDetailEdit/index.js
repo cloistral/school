@@ -76,6 +76,13 @@ Page({
                         })
                     })
 
+                    if(tempList.length == 0) {
+                        wx.showToast({
+                            title : '暂未获取到时段,请检查员工码是否正确!',
+                            icon : 'none'
+                        })
+                    }
+
                     this.setData({
                         timeList: tempList
                     })
