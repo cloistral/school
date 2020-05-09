@@ -1,9 +1,11 @@
 {
     "pages": [
-        
+        "pages/employeeEdit/index",
+        "pages/employee/index",
+        "pages/employeeDetail/index",
         "pages/home/home",
         "pages/classDetail/index",
-       "pages/classDetailEdit/index",
+        "pages/classDetailEdit/index",
         "pages/edit/edit",
         "pages/pay/pay",
         "pages/mine/mine",
@@ -11,12 +13,12 @@
         "pages/order/order",
         "pages/listening/index",
         "pages/classList/index"
+        
     ],
     "tabBar": {
         "color": "#8a8a8a",
         "selectedColor": "#FD7321",
-        "list": [
-            {
+        "list": [{
                 "pagePath": "pages/home/home",
                 "iconPath": "/images/tab/home.png",
                 "selectedIconPath": "/images/tab/home_s.png",

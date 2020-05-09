@@ -50,11 +50,17 @@
        <view class="title">如何上课</view>
        <image src="/images/arrow.png"></image>
     </view>
+
+     <view class="button-container order" bindtap="goToEmployee">
+       <image class="menu-icon" src="/images/mine/order.png"></image>
+       <view class="title">员工入口</view>
+       <image src="/images/arrow.png"></image>
+    </view>
+
 </view>
 
 <view class="mine-image-bottom">
     <image mode="widthFix"  src="/images/mine/mine_bottom.png"></image>
-    
 </view>
 
 

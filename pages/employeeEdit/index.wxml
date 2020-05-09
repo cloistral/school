@@ -1,0 +1,28 @@
+<view class="image-container">
+    <image mode="widthFix"  src="/images/mine/mine_bottom.png"></image>
+</view>
+
+<view>
+    <view class="input_container bg">
+            <view class="title">员工码</view>
+            <input  type="text"
+                    bindinput="bindCodeInput"
+                    placeholder="请输入员工码"
+                    value="{{param.yycode}}"
+                    placeholder-style="color:#DBDCDD">
+            </input>
+    </view>
+
+    <view class="input_container bg">
+            <view class="title">手机号</view>
+            <input  type="text"
+                    bindinput="bindPhoneInput"
+                    placeholder="请输入手机号"
+                    value="{{param.mobile}}"
+                    placeholder-style="color:#DBDCDD">
+            </input>
+    </view>
+     <view class="success-btn">
+        <button bindtap="submit">完成</button>
+    </view>
+</view>

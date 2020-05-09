@@ -71,6 +71,12 @@ Page({
         } 
     },
 
+    goToEmployee () {
+        wx.navigateTo({
+          url: '/pages/employee/index',
+        })
+    },
+
     goToMyOrder() {
         wx.navigateTo({
             url: '/pages/order/order',

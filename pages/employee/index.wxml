@@ -1,0 +1,19 @@
+<view class="button-box">
+  
+     <view class="button-container" 
+           bindtap="goToEdit" 
+           data-type="statistics">
+       <image class="menu-icon" src="/images/mine/order.png"></image>
+       <view class="title">上课统计</view>
+       <image src="/images/arrow.png"></image>
+    </view>
+
+     <view class="button-container order" 
+           bindtap="goToEdit"
+           data-type="parent">
+       <image class="menu-icon" src="/images/mine/order.png"></image>
+       <view class="title">家长列表</view>
+       <image src="/images/arrow.png"></image>
+    </view>
+
+</view>
