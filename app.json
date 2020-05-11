@@ -13,6 +13,7 @@
         "pages/employeeEdit/index",
         "pages/employee/index",
         "pages/employeeDetail/index",
+        "pages/employeeClass/index",
         "pages/classList/index"
         
     ],

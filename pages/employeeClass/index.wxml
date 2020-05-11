@@ -1,0 +1,18 @@
+<view>
+   <view class="order-container" wx:for="{{data}}">
+        <view class="order-item" 
+              bindtap="goToOther"
+              data-data="{{item}}"
+              style="font-weight:bold;color:#000;font-size: 32rpx;">
+            <text>{{item.agencyName}} {{item.bak1 ? (' · ' +item.bak1) : ''}}</text>
+        </view>
+     
+        <view class="order-item" 
+              bindtap="makePhone"
+              data-mobile="{{item.jzmobile}}">
+            <text> {{item.diquName}}</text>
+            <text> {{ item.jzname}} {{ item.jzmobile}}</text>
+           
+        </view>
+   </view>
+</view>

@@ -120,6 +120,20 @@ const getStatistics = function (param) {
     })
 }
 
+const getBxToYeji = function(param) {
+    request({
+        url: "/api/ab/bxToYeji",
+        data: param.data,
+        method: 'post',
+        success(res) {
+            if (param.success) {
+                param.success(res)
+            }
+        }
+    })
+}
+
+
 module.exports = {
     getHomeInfo,
     getRecommendClassList, //获取首页推荐视频
@@ -130,4 +144,5 @@ module.exports = {
     getWatchRecord,
     getParentList , //员工获取家长列表
     getStatistics , //员工查看上课情况统计
+    getBxToYeji,
 }

@@ -21,6 +21,12 @@ Page({
         })
 
     },
+    goToOther (e) {
+        let shiduanId = e.currentTarget.dataset.data.shiduanid
+        wx.navigateTo({
+          url: '/pages/employeeClass/index?shiduanId=' + shiduanId,
+        })
+    },
     onUnload () {
         app.globalData.emlpoyeeData  = []
     },

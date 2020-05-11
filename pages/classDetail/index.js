@@ -234,7 +234,7 @@ Page({
                 }
 
                 if(this.data.classType == 'en') {
-                    for(let i = 1 ; i < 5 ; i++ ) {
+                    for(let i = 1 ; i < 3 ; i++ ) {
                         let key = 'waijiaoimg' + i
                         if (data.hasOwnProperty(key) && data[key]) {
                             zhutiList.push(app.globalData.baseUrl + data[key])
